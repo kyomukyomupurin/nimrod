@@ -2,13 +2,13 @@
 #include <cstring>
 #include <iostream>
 
-namespace FastIO {
-class Scanner {
+namespace fast_io {
+class scanner {
  public:
-  Scanner() { fread(buf, 1, sz, stdin); }
+  scanner() { fread(buf, 1, sz, stdin); }
 
   template <class T>
-  inline Scanner& operator>>(T& x) {
+  inline scanner& operator>>(T& x) {
     skip();
     scan(x);
     return *this;
@@ -41,14 +41,14 @@ class Scanner {
   }
 };
 
-class Printer {
+class printer {
  public:
-  Printer() {}
+  printer() {}
 
-  ~Printer() { flush(); }
+  ~printer() { flush(); }
 
   template <class T>
-  inline Printer& operator<<(T x) {
+  inline printer& operator<<(T x) {
     print(x);
     return *this;
   }
@@ -79,13 +79,9 @@ class Printer {
     cur = std::to_chars(cur, cur + 20, n).ptr;
   }
 
-  inline void print(std::size_t n) {
-    print(int(n));
-  }
+  inline void print(std::size_t n) { print(int(n)); }
 
-  inline void print(std::ptrdiff_t n) {
-    print(int(n));
-  }
+  inline void print(std::ptrdiff_t n) { print(int(n)); }
 
   inline void print(char c) {
     if (cur + 1 >= buf + sz) flush();
@@ -99,11 +95,9 @@ class Printer {
     cur += s.size();
   }
 
-  inline void print(const char* s) {
-    print(std::string(s));
-  }
+  inline void print(const char* s) { print(std::string(s)); }
 };
-}  // namespace FastIO
+}  // namespace fast_io
 
-FastIO::Scanner in;
-FastIO::Printer out;
+fast_io::scanner in;
+fast_io::printer out;

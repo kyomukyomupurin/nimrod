@@ -1,11 +1,11 @@
 #include <vector>
 
 template <class T>
-class Fenwick {
+class fenwick {
  public:
-  explicit Fenwick(int n) : n_(n + 1) { d_.assign(n_, 0); }
+  explicit fenwick(int n) : n_(n + 1) { d_.assign(n_, 0); }
 
-  explicit Fenwick(const std::vector<T>& v) : {
+  explicit fenwick(const std::vector<T>& v) : {
     n_ = int(v.size()) + 1;
     d_.assign(n_, 0);
     for (int i = 0; i < n_ - 1; ++i) add(i, d_[i]);

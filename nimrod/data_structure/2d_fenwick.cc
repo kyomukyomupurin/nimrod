@@ -1,13 +1,15 @@
 #include <vector>
 
 template <class T>
-class Fenwick2d {
+class fenwick_2d {
  public:
-  explicit Fenwick2D(int x, int y) : x_(x), y_(y) { d_.assign(x_ + 1, std::vector<T>(y_ + 1, 0)); }
+  explicit fenwick_2d(int x, int y) : x_(x), y_(y) {
+    d_.assign(x_ + 1, std::vector<T>(y_ + 1, 0));
+  }
 
-  explicit Fenwick2D(const std::vector<std::vector<T>>& v) {
+  explicit fenwick_2d(const std::vector<std::vector<T>>& v) {
     x_ = int(v.size());
-    y_ = int(v[0].size());d_.assign(x_ + 1, std::vector<T>(y_ + 1, 0));
+    y_ = int(v[0].size());
     d_.assign(x_ + 1, std::vector<T>(y_ + 1, 0));
     for (int i = 0; i < x_; ++i) {
       for (int j = 0; j < y_; ++j) {
@@ -35,7 +37,8 @@ class Fenwick2d {
   }
 
   T get(int sx, int sy, int gx, int gy) const {
-    return get(gx, gy) - get(sx - 1, gy) - get(gx, sy - 1) + get(sx - 1, sy - 1);
+    return get(gx, gy) - get(sx - 1, gy) - get(gx, sy - 1) +
+           get(sx - 1, sy - 1);
   }
 
  private:

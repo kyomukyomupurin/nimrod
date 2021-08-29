@@ -2,9 +2,9 @@
 #include <vector>
 
 template <class T>
-class Compress {
+class compress {
  public:
-  explicit Compress(const std::vector<T>& v) d_(v) {
+  explicit compress(const std::vector<T>& v) : d_(v) {
     n_ = int(v.size());
     std::sort(d_.begin(), d_.end());
     d_.erase(std::unique(d_.begin(), d_.end()), d_.end());

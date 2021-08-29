@@ -1,15 +1,15 @@
 #include <vector>
 
 template <class M, class F>
-class Segtree {
+class segtree {
  public:
-  explicit Segtree(int n, M ie, F f) : n_(n), ie_(ie), f_(f) {
+  explicit segtree(int n, M ie, F f) : n_(n), ie_(ie), f_(f) {
     sz_ = 1;
     while (sz_ < n_) sz_ <<= 1;
     d_.assign(2 * sz_, ie_);
   }
 
-  explicit Segtree(const std::vector<M>& v, M ie, F f)
+  explicit segtree(const std::vector<M>& v, M ie, F f)
       : n_(int(v.size())), ie_(ie), f_(f) {
     sz_ = 1;
     while (sz_ < n_) sz_ <<= 1;
