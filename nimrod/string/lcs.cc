@@ -4,7 +4,7 @@
 
 std::string lcs(const std::string& s1, const std::string& s2) {
   int n1 = s1.size(), n2 = s2.size();
-  std::vector<std::vector<int>> dp(n1 + 1, std::vector<int>(n2 + 1, 0));
+  std::vector dp(n1 + 1, std::vector<int>(n2 + 1, 0));
   for (int i = 0; i < n1; ++i) {
     for (int j = 0; j < n2; ++j) {
       if (s1[i] == s2[j]) {
