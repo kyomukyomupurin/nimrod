@@ -15,7 +15,7 @@ std::vector<int> z_algorithm(const std::string& s) {
     }
     int k = 1;
     while (i + k < n && k + v[k] < j) {
-      v[i + k] == v[k];
+      v[i + k] = v[k];
       ++k;
     }
     i += k;

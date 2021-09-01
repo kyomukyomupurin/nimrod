@@ -4,7 +4,7 @@ class dsu {
  public:
   explicit dsu(int n) : n_(n) { p_.assign(n, -1); }
 
-  int root(int x) { return (p_[x] == -1) ? x : p_[x] = root(p_[x]); }
+  int root(int x) { return (p_[x] < 0) ? x : p_[x] = root(p_[x]); }
 
   bool same(int x, int y) { return root(x) == root(y); }
 

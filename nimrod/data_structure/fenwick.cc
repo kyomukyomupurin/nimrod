@@ -5,7 +5,7 @@ class fenwick {
  public:
   explicit fenwick(int n) : n_(n + 1) { d_.assign(n_, 0); }
 
-  explicit fenwick(const std::vector<T>& v) : {
+  explicit fenwick(const std::vector<T>& v) {
     n_ = int(v.size()) + 1;
     d_.assign(n_, 0);
     for (int i = 0; i < n_ - 1; ++i) add(i, d_[i]);
@@ -37,7 +37,7 @@ class fenwick {
     int p = 0, k = 1;
     while (k < n_ - 1) k <<= 1;
     while (k) {
-      if (p + k <= n_ - 1 && d[p + k] < x) {
+      if (p + k <= n_ - 1 && d_[p + k] < x) {
         x -= d_[p + k];
         p += k;
       }
