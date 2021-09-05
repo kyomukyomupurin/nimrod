@@ -8,7 +8,7 @@ class fenwick {
   explicit fenwick(const std::vector<T>& v) {
     n_ = int(v.size()) + 1;
     d_.assign(n_, 0);
-    for (int i = 0; i < n_ - 1; ++i) add(i, d_[i]);
+    for (int i = 0; i < n_ - 1; ++i) add(i, v[i]);
   }
 
   void add(int p, T x) {

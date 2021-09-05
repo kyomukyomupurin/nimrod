@@ -16,6 +16,7 @@ int128 to_int128(const std::string& s) {
 int128 to_int128(const char* c) { return to_int128(std::string(c)); }
 
 std::string to_string(const int128& n) {
+  if (n == 0) return "0";
   std::string s = "";
   int128 t = n;
   bool neg = n < 0;
