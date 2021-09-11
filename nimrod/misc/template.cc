@@ -2,7 +2,7 @@
 
 using namespace std;
 
-using int64 = long long;
+using ll = long long;
 
 int main() {
   std::ios_base::sync_with_stdio(false);
