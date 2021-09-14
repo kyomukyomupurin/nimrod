@@ -26,10 +26,11 @@ def snippetize(filename: str) -> Snippet:
 
 if __name__ == "__main__":
     snippets: dict[str, Snippet] = {}
-    for root, _, files in os.walk("./../nimrod"):
+    for root, _, files in os.walk("./../nimrod/"):
         for filename in files:
-            if Path(filename).suffix == "cc":
+            if Path(filename).suffix == ".cc":
                 snippet: Snippet = snippetize(join(root, filename))
                 if snippet["body"]:
                     snippets[Path(filename).stem] = snippet
-    Path("./output.json").write_text(json.dumps(snippets, indent=4))
+                    print(f"Generated snippet for {join(root, filename)}")
+    Path("./snippet.json").write_text(json.dumps(snippets, indent=4))
