@@ -18,7 +18,7 @@ std::pair<double, double> golden_search(double low, double high, F f) {
       y2 = y1;
       s2 = s1;
       s1 = (phi * low + high) / (1 + phi);
-      y1 = f(y1);
+      y1 = f(s1);
     }
   }
   return {low, y1};
