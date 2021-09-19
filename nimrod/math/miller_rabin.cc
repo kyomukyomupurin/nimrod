@@ -1,19 +1,9 @@
 #include <initializer_list>
 
 namespace miller_rabin {
-long long power(long long n, int x, int mod) {
-  long long res = 1;
-  n %= mod;
-  while (x) {
-    if (x & 1) (res *= n) %= mod;
-    (n *= n) %= mod;
-    x >>= 1;
-  }
-  return res;
-}
-
-__int128_t power(__int128_t n, long long x, long long mod) {
-  __int128_t res = 1;
+template <class T, class U>
+T power(T n, U x, U mod) {
+  T res = 1;
   n %= mod;
   while (x) {
     if (x & 1) (res *= n) %= mod;
