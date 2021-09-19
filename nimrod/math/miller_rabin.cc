@@ -2,13 +2,13 @@
 
 namespace miller_rabin {
 template <class T, class U>
-T power(T n, U x, U mod) {
+T power(T base, U exp, U mod) {
   T res = 1;
-  n %= mod;
-  while (x) {
-    if (x & 1) (res *= n) %= mod;
-    (n *= n) %= mod;
-    x >>= 1;
+  base %= mod;
+  while (exp) {
+    if (exp & 1) (res *= base) %= mod;
+    (base *= base) %= mod;
+    exp >>= 1;
   }
   return res;
 }
