@@ -57,7 +57,7 @@ if __name__ == "__main__":
                         print(f"Generated: {Path(file).stem}")
                 else:
                     if Path(file).stem in snippets:
-                        if snippets[Path(file).stem]["timestamp"] != Path(file).stat().st_mtime:
+                        if snippets[Path(file).stem]["timestamp"] != Path(join(root, file)).stat().st_mtime:
                             snippet: Snippet = snippetize(join(root, file))
                             if "body" in snippet:
                                 snippets[Path(file).stem] = snippet
