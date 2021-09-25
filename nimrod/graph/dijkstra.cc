@@ -5,6 +5,7 @@
 
 #include "./graph.cc"
 
+// snippet-begin
 template <class T>
 std::vector<T> dijkstra(const graph<T>& g, int s) {
   std::vector<T> dist(g.size(), std::numeric_limits<T>::max() / 2);

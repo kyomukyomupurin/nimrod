@@ -3,6 +3,7 @@
 
 #include "./graph.cc"
 
+// snippet-begin
 template <class T>
 std::vector<T> bfs(const graph<T>& g, int s) {
   std::vector<T> d(g.size(), -1);

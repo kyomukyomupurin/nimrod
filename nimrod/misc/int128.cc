@@ -2,10 +2,9 @@
 #include <iostream>
 #include <string>
 
-using int128 = __int128_t;
-
-int128 to_int128(const std::string& s) {
-  int128 n = 0;
+// snippet-begin
+__int128_t to_int128(const std::string& s) {
+  __int128_t n = 0;
   bool neg = s[0] == '-';
   for (int i = int(neg); i < int(s.size()); ++i) {
     n = n * 10 + (s[i] & 0b1111);
@@ -13,12 +12,12 @@ int128 to_int128(const std::string& s) {
   return neg ? -n : n;
 }
 
-int128 to_int128(const char* c) { return to_int128(std::string(c)); }
+__int128_t to_int128(const char* c) { return to_int128(std::string(c)); }
 
-std::string to_string(const int128& n) {
+std::string to_string(const __int128_t& n) {
   if (n == 0) return "0";
   std::string s = "";
-  int128 t = n;
+  __int128_t t = n;
   bool neg = n < 0;
   if (neg) t = -t;
   while (t) {
@@ -30,13 +29,13 @@ std::string to_string(const int128& n) {
   return s;
 }
 
-std::istream& operator>>(std::istream& is, int128& n) {
+std::istream& operator>>(std::istream& is, __int128_t& n) {
   std::string s;
   is >> s;
   n = to_int128(s);
   return is;
 }
 
-std::ostream& operator<<(std::ostream& os, const int128& n) {
+std::ostream& operator<<(std::ostream& os, const __int128_t& n) {
   return os << to_string(n);
 }

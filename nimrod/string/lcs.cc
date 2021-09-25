@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 
+// snippet-begin
 std::string lcs(const std::string& s1, const std::string& s2) {
   int n1 = s1.size(), n2 = s2.size();
   std::vector dp(n1 + 1, std::vector<int>(n2 + 1, 0));

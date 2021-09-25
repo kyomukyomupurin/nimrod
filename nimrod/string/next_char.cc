@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 
+// snippet-begin
 class next_char {
  public:
   explicit next_char(const std::string& s) {

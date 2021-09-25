@@ -1,5 +1,6 @@
 #include <queue>
 
+// snippet-begin
 template <class T>
 class median_queue {
  public:

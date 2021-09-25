@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 
+// snippet-begin
 std::vector<std::pair<char, int>> rle(const std::string& s) {
   int n = s.size();
   std::vector<std::pair<char, int>> v;

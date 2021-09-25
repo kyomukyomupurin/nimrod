@@ -1,5 +1,6 @@
 #include <vector>
 
+// snippet-begin
 template <class T>
 class fenwick_2d {
  public:

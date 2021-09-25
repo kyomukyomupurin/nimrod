@@ -2,6 +2,7 @@
 
 #include "./fenwick.cc"
 
+// snippet-begin
 template <class T>
 class fenwick_raq {
  public:

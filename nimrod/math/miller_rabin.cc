@@ -1,5 +1,6 @@
 #include <initializer_list>
 
+// snippet-begin
 namespace miller_rabin {
 template <class T, class U>
 T power(T base, U exp, U mod) {

@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 
+// snippet-begin
 template <class T>
 std::vector<T> divisor(T n) {
   std::vector<int> v;

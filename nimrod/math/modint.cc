@@ -2,6 +2,7 @@
 #include <cassert>
 #include <vector>
 
+// snippet-begin
 template <class T>
 T inverse(T a, T m) {
   T u = 0, v = 1;
@@ -16,7 +17,7 @@ T inverse(T a, T m) {
   return u;
 }
 
-template <int mod>
+template <int Mod>
 class Modular {
  public:
   constexpr Modular(long long val = 0) : val_(val % mod()) {
@@ -25,7 +26,7 @@ class Modular {
 
   const long long& operator()() const noexcept { return val_; }
 
-  constexpr int mod() const noexcept { return mod; }
+  constexpr int mod() const noexcept { return Mod; }
 
   constexpr Modular& operator+=(const Modular& other) noexcept {
     if ((val_ += other.val_) >= mod()) val_ -= mod();

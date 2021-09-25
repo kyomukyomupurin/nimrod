@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 
+// snippet-begin
 template <class T>
 class compress {
  public:

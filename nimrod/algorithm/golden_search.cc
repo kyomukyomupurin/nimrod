@@ -1,5 +1,6 @@
 #include <cmath>
 
+// snippet-begin
 template <class F>
 std::pair<double, double> golden_search(double low, double high, const F& f) {
   const double phi = (1 + std::sqrt(5)) / 2;

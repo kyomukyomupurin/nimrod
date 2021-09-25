@@ -2,6 +2,7 @@
 #include <stdexcept>
 #include <string>
 
+// snippet-begin
 std::string exec(const char* cmd) {
   constexpr int sz = 1 << 7;
   char buf[sz];

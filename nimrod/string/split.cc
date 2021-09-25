@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 
+// snippet-begin
 std::vector<std::string> split(const std::string& s) {
   std::vector<std::string> v;
   std::string t;

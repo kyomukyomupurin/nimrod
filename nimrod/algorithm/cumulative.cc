@@ -1,5 +1,6 @@
 #include <vector>
 
+// snippet-begin
 template <class T>
 class cumulative {
  public:

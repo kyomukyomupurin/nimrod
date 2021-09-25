@@ -2,6 +2,7 @@
 #include <cstring>
 #include <iostream>
 
+// snippet-begin
 namespace fast_io {
 class scanner {
  public:

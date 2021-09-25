@@ -1,5 +1,6 @@
 #include <vector>
 
+// snippet-begin
 class weighted_dsu {
  public:
   explicit weighted_dsu(int n) : n_(n) {

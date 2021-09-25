@@ -3,6 +3,7 @@
 
 #include "./bfs.cc"
 
+// snippet-begin
 template <class T>
 T diameter(const forest<T>& g) {
   std::vector d1 = bfs(g, 0);

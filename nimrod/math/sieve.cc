@@ -1,5 +1,6 @@
 #include <vector>
 
+// snippet-begin
 std::vector<int> sieve(int n) {
   std::vector lp(n + 1, 0);
   std::vector<int> p;

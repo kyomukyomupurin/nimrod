@@ -1,5 +1,6 @@
 #include <map>
 
+// snippet-begin
 template <class T>
 std::map<T, int> factor(T n) {
   std::map<T, int> m;

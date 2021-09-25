@@ -1,5 +1,6 @@
 #include <vector>
 
+// snippet-begin
 template <class M, class F>
 class segtree {
  public:

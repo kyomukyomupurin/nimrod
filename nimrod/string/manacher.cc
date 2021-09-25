@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 
+// snippet-begin
 std::vector<int> manacher(const std::string& s) {
   int n = s.size();
   std::vector<int> v(n);

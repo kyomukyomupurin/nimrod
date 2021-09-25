@@ -1,5 +1,6 @@
 #include <vector>
 
+// snippet-begin
 class dsu {
  public:
   explicit dsu(int n) : n_(n) { p_.assign(n, -1); }
