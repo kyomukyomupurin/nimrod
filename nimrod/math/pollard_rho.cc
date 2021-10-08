@@ -2,8 +2,9 @@
 
 #include "miller_rabin.cc"
 
+// snippet-begin
 namespace pollard_rho {
-unsigned int binary_gcd(unsigned int x, unsigned int y) {
+int binary_gcd(int x, int y) {
   if (x == 0) return y;
   if (y == 0) return x;
   int s = __builtin_ctz(x | y);
@@ -16,7 +17,7 @@ unsigned int binary_gcd(unsigned int x, unsigned int y) {
   return x << s;
 }
 
-unsigned long long binary_gcd(unsigned long long x, unsigned long long y) {
+long long binary_gcd(long long x, long long y) {
   if (x == 0) return y;
   if (y == 0) return x;
   int s = __builtin_ctzll(x | y);
@@ -29,15 +30,27 @@ unsigned long long binary_gcd(unsigned long long x, unsigned long long y) {
   return x << s;
 }
 
-unsigned long long rho(unsigned long long n, unsigned long long c = 1) {
+int rho(int n, int c = 1) {
   if (is_prime(n)) return n;
-  unsigned long long x = 2, y = 2, g;
+  int x = 2, y = 2, g;
   do {
-    x = (__uint128_t(x) * x + c) % n;
-    y = (__uint128_t(y) * y + c) % n;
-    y = (__uint128_t(y) * y + c) % n;
+    x = ((long long)(x)*x + c) % n;
+    y = ((long long)(y)*y + c) % n;
+    y = ((long long)(y)*y + c) % n;
     g = binary_gcd(x > y ? x - y : y - x, n);
   } while (g == 1);
   return (g < n ? g : rho(n, c + 1));
 }
+
+long long rho(long long n, int c = 1) {
+  if (is_prime(n)) return n;
+  long long x = 2, y = 2, g;
+  do {
+    x = (__int128_t(x) * x + c) % n;
+    y = (__int128_t(y) * y + c) % n;
+    y = (__int128_t(y) * y + c) % n;
+    g = binary_gcd(x > y ? x - y : y - x, n);
+  } while (g == 1);
+  return (g < n ? g : rho(n, c + 1));
 }
+}  // namespace pollard_rho
