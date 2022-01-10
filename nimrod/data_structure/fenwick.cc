@@ -20,6 +20,7 @@ class fenwick {
     }
   }
 
+  // return sum of [l, r)
   T get(int l, int r) const {
     T s = 0;
     while (l < r) {

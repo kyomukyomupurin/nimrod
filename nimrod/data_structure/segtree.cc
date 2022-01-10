@@ -28,6 +28,7 @@ class segtree {
     }
   }
 
+  // return [l, r)
   M get(int l, int r) const {
     M vl = ie_, vr = ie_;
     for (l += sz_, r += sz_; l < r; l >>= 1, r >>= 1) {
