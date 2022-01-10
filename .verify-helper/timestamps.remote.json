@@ -1,4 +1,8 @@
 {
+"verify/algorithm/cumulative.test.cc": "2022-01-10 18:28:24 +0900",
 "verify/data_structure/dsu.test.cc": "2022-01-10 16:22:26 +0900",
+"verify/data_structure/fenwick.test.cc": "2022-01-10 18:28:24 +0900",
+"verify/data_structure/segtree_rmq.test.cc": "2022-01-10 18:28:24 +0900",
+"verify/data_structure/segtree_rsq.test.cc": "2022-01-10 18:28:24 +0900",
 "verify/data_structure/weighted_dsu.test.cc": "2022-01-10 16:22:21 +0900"
 }
