@@ -1,5 +1,5 @@
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A"
-#include "nimrod/data_structure/dsu.cc"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_1_A"
+#include "../../nimrod/data_structure/dsu.cc"
 
 #include <iostream>
 
