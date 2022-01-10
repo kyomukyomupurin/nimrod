@@ -3,7 +3,7 @@
 // snippet-begin
 class weighted_dsu {
  public:
-  explicit weighted_dsu(int n) : n_(n) {
+  explicit weighted_dsu(int n) {
     p_.assign(n, -1);
     r_.assign(n, 0);
     w_.assign(n, 0);
@@ -44,7 +44,6 @@ class weighted_dsu {
   int diff(int x, int y) { return weight(y) - weight(x); }
 
  private:
-  int n_;
   std::vector<int> p_;
   std::vector<int> r_;
   std::vector<int> w_;

@@ -3,7 +3,7 @@
 // snippet-begin
 class dsu {
  public:
-  explicit dsu(int n) : n_(n) { p_.assign(n, -1); }
+  explicit dsu(int n) { p_.assign(n, -1); }
 
   int root(int x) { return (p_[x] < 0) ? x : p_[x] = root(p_[x]); }
 
@@ -21,6 +21,5 @@ class dsu {
   int size(int x) { return -p_[root(x)]; }
 
  private:
-  int n_;
   std::vector<int> p_;
 };
