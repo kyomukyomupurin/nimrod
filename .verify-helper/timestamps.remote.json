@@ -5,6 +5,8 @@
 "verify/data_structure/segtree_rmq.test.cc": "2022-01-10 18:28:24 +0900",
 "verify/data_structure/segtree_rsq.test.cc": "2022-01-10 18:28:24 +0900",
 "verify/data_structure/weighted_dsu.test.cc": "2022-01-10 16:22:21 +0900",
+"verify/graph/dijkstra.test.cc": "2022-01-11 20:08:27 +0900",
 "verify/math/factor.test.cc": "2022-01-10 19:02:40 +0900",
+"verify/math/modint_power.test.cc": "2022-01-11 20:08:27 +0900",
 "verify/misc/fastio.test.cc": "2022-01-10 19:02:40 +0900"
 }
