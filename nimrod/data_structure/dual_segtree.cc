@@ -3,7 +3,7 @@
 template <class OM, class F>
 class dual_segtree {
  public:
-  explicit dual_segtree(int n, OM oie, F f) {
+  explicit dual_segtree(int n, OM oie, F f) : oie_(oie), f_(f) {
     sz_ = 1, h_ = 0;
     while (sz_ < n) sz_ <<= 1, ++h_;
     lazy_.assign(2 * sz_, oie_);
@@ -17,7 +17,7 @@ class dual_segtree {
     for (l += sz_, r += sz_; l < r; l >>= 1, r >>= 1) {
       if (l & 1) lazy_[l] = f_(lazy_[l], x), ++l;
       if (r & 1) --r, lazy_[r] = f_(lazy_[r], x);
-    }    
+    }
   }
 
   // [p]
