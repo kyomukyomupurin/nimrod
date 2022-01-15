@@ -12,7 +12,8 @@ class cumulative {
     }
   }
 
-  // return sum of [l, r]
+  // [l, r]
+  // O(1)
   T get(int l, int r) const { return s_[r + 1] - s_[l]; }
 
  private:

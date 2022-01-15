@@ -11,12 +11,15 @@ class compress {
     d_.erase(std::unique(d_.begin(), d_.end()), d_.end());
   }
 
+  // O(1)
   T find_by_order(int p) const { return d_[p]; }
 
+  // O(logN)
   int find_by_value(T x) const {
     return std::distance(d_.begin(), std::lower_bound(d_.begin(), d_.end(), x));
   }
 
+  // O(1)
   int size() const { return n_; }
 
  private:

@@ -19,14 +19,18 @@ class fenwick_2d {
     }
   }
 
-  void add(int x, int y, T x) {
+  // [x][y] -> [x][y] + v
+  // O((logN)^2)
+  void add(int x, int y, T v) {
     for (int i = x + 1; i < x_ + 1; i += i & -i) {
       for (int j = y + 1; j < y_ + 1; j += j & -j) {
-        d_[i][j] += x;
+        d_[i][j] += v;
       }
     }
   }
 
+  // [0, x] * [0, y]
+  // O((logN)^2)
   T get(int x, int y) const {
     T s = 0;
     for (int i = x + 1; i > 0; i -= i & -i) {
@@ -37,6 +41,8 @@ class fenwick_2d {
     return s;
   }
 
+  // [sx, gx] * [sy, gy]
+  // O((logN)^2)
   T get(int sx, int sy, int gx, int gy) const {
     return get(gx, gy) - get(sx - 1, gy) - get(gx, sy - 1) +
            get(sx - 1, sy - 1);

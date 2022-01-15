@@ -11,17 +11,20 @@ class raq_fenwick {
   explicit raq_fenwick(const std::vector<T>& v)
       : n_(int(v.size())), f1_(fenwick<T>(v)), f2_(fenwick<T>(v)) {}
 
-  // add x for [l, r)
+  // [l, r)
+  // O(logN)
   void add(int l, int r, T x) {
     add(f1_, l, r, x);
     add(f2_, l, r, -x * (l - 1));
     add(f2_, r, n_, x * (r - l));
   }
 
-  // return sum of [0, p]
+  // [0, p]
+  // O(logN)
   T get(int p) const { return f1_.get(0, p + 1) * p + f2_.get(0, p + 1); }
 
-  // return sum of [l, r]
+  // [l, r]
+  // O(logN)
   T get(int l, int r) const { return get(r) - get(l - 1); }
 
  private:

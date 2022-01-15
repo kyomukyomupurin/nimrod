@@ -26,6 +26,7 @@ class weighted_dsu {
 
   bool same(int x, int y) { return root(x) == root(y); }
 
+  // y is w larger than x
   void merge(int x, int y, int w) {
     w += weight(x);
     w -= weight(y);
@@ -41,6 +42,7 @@ class weighted_dsu {
     w_[y] = w;
   }
 
+  // y - w (only if same(x, y))
   int diff(int x, int y) { return weight(y) - weight(x); }
 
  private:

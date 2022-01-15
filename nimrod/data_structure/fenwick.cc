@@ -12,6 +12,8 @@ class fenwick {
     for (int i = 0; i < n_ - 1; ++i) add(i, v[i]);
   }
 
+  // [p] -> [p] + x
+  // O(logN)
   void add(int p, T x) {
     ++p;
     while (p < n_) {
@@ -20,7 +22,8 @@ class fenwick {
     }
   }
 
-  // return sum of [l, r)
+  // [l, r)
+  // O(logN)
   T get(int l, int r) const {
     T s = 0;
     while (l < r) {
@@ -34,6 +37,8 @@ class fenwick {
     return s;
   }
 
+  // smallest p for which sum of [0, p] >= x
+  // O(logN)
   int lower_bound(T x) const {
     if (x <= 0) return 0;
     int p = 0, k = 1;
