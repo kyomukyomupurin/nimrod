@@ -15,8 +15,8 @@ class dual_segtree {
     thrust(l + sz_);
     thrust(r + sz_ - 1);
     for (l += sz_, r += sz_; l < r; l >>= 1, r >>= 1) {
-      if (l & 1) lazy_[l] = f_(lazy_[l], val), ++l;
-      if (r & 1) --r, lazy_[r] = f_(lazy_[r], val);
+      if (l & 1) lazy_[l] = f_(lazy_[l], x), ++l;
+      if (r & 1) --r, lazy_[r] = f_(lazy_[r], x);
     }    
   }
 
