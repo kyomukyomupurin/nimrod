@@ -1,3 +1,4 @@
+#define PROBLEM "https://judge.yosupo.jp/problem/range_affine_range_sum"
 #include <iostream>
 
 #include "../../nimrod/data_structure/lazy_segtree.cc"
