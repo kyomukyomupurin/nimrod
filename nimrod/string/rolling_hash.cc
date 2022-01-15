@@ -40,3 +40,6 @@ class rolling_hash {
   static std::vector<mint1> p1_;
   static std::vector<mint2> p2_;
 };
+
+std::vector<rolling_hash::mint1> rolling_hash::p1_{1};
+std::vector<rolling_hash::mint2> rolling_hash::p2_{1};
