@@ -23,13 +23,27 @@ class modint {
     if (val_ < 0) val_ += mod;
     return *this;
   }
-  constexpr modint& operator/=(const modint& rhs) { 
+  constexpr modint& operator/=(const modint& rhs) {
     return *this *= modint(inverse(rhs.val_, static_cast<long long>(mod)));
   }
-  constexpr modint operator+(const modint rhs) const { return modint(*this) += rhs; } 
-  constexpr modint operator-(const modint rhs) const { return modint(*this) -= rhs; }
-  constexpr modint operator*(const modint rhs) const { return modint(*this) *= rhs; }
-  constexpr modint operator/(const modint rhs) const { return modint(*this) /= rhs; }
+  constexpr modint operator+(const modint rhs) const {
+    return modint(*this) += rhs;
+  }
+  constexpr modint operator-(const modint rhs) const {
+    return modint(*this) -= rhs;
+  }
+  constexpr modint operator*(const modint rhs) const {
+    return modint(*this) *= rhs;
+  }
+  constexpr modint operator/(const modint rhs) const {
+    return modint(*this) /= rhs;
+  }
+  constexpr bool operator==(const modint rhs) const {
+    return val_ == rhs.val_;
+  }
+  constexpr bool operator!=(const modint rhs) const {
+    return val_ != rhs.val_;
+  }
   constexpr modint& operator++() { return *this += 1; }
   constexpr modint& operator--() { return *this -= 1; }
   constexpr modint operator-() const { return modint(-val_); }
