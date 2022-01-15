@@ -1,6 +1,8 @@
 {
 "verify/algorithm/cumulative.test.cc": "2022-01-15 16:20:18 +0900",
 "verify/data_structure/dsu.test.cc": "2022-01-10 16:22:26 +0900",
+"verify/data_structure/dual_segtree_raq.test.cc": "2022-01-15 19:08:30 +0900",
+"verify/data_structure/dual_segtree_ruq.test.cc": "2022-01-15 19:08:30 +0900",
 "verify/data_structure/fenwick.test.cc": "2022-01-15 16:20:18 +0900",
 "verify/data_structure/lazy_segtree_rmq_raq.test.cc": "2022-01-15 16:20:18 +0900",
 "verify/data_structure/lazy_segtree_rmq_ruq.test.cc": "2022-01-15 16:20:18 +0900",
