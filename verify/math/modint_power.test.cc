@@ -3,10 +3,14 @@
 
 #include "../../nimrod/math/modint.cc"
 
+constexpr int mod = int(1e9) + 7;
+using mint = modint<mod>;
+
 int main() {
-  int n, k;
+  int n;
+  mint k;
   std::cin >> n >> k;
-  std::cout << power(k, n) << '\n';
+  std::cout << k.pow(n) << '\n';
 
   return 0;
 }

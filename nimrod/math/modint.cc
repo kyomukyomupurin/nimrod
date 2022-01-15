@@ -3,110 +3,71 @@
 #include <vector>
 
 // snippet-begin
-template <class T>
-T inverse(T a, T m) {
-  T u = 0, v = 1;
-  while (a != 0) {
-    T t = m / a;
-    m -= t * a;
-    std::swap(a, m);
-    u -= t * v;
-    std::swap(u, v);
-  }
-  assert(m == 1);
-  return u;
-}
-
-template <int Mod>
-class Modular {
+template <int mod>
+class modint {
  public:
-  constexpr Modular(long long val = 0) : val_(val % mod()) {
-    if (val_ < 0) val_ += mod();
+  constexpr modint(long long val = 0) : val_(val % mod) {
+    if (val_ < 0) val_ += mod;
   }
-
-  const long long& operator()() const noexcept { return val_; }
-
-  constexpr int mod() const noexcept { return Mod; }
-
-  constexpr Modular& operator+=(const Modular& other) noexcept {
-    if ((val_ += other.val_) >= mod()) val_ -= mod();
+  const long long& operator()() const { return val_; }
+  constexpr modint& operator+=(const modint& rhs) {
+    if ((val_ += rhs.val_) >= mod) val_ -= mod;
     return *this;
   }
-
-  constexpr Modular& operator-=(const Modular& other) noexcept {
-    if ((val_ -= other.val_) < 0) val_ += mod();
+  constexpr modint& operator-=(const modint& rhs) {
+    if ((val_ -= rhs.val_) < 0) val_ += mod;
     return *this;
   }
-
-  constexpr Modular& operator*=(const Modular& other) noexcept {
-    (val_ *= other.val_) %= mod();
-    if (val_ < 0) val_ += mod();
+  constexpr modint& operator*=(const modint& rhs) {
+    (val_ *= rhs.val_) %= mod;
+    if (val_ < 0) val_ += mod;
     return *this;
   }
-
-  constexpr Modular& operator/=(const Modular& other) noexcept {
-    return *this *= Modular(inverse(other.val_, static_cast<long long>(mod())));
+  constexpr modint& operator/=(const modint& rhs) { 
+    return *this *= modint(inverse(rhs.val_, static_cast<long long>(mod)));
   }
-
-  constexpr Modular& operator++() noexcept { return *this += 1; }
-
-  constexpr Modular& operator--() noexcept { return *this -= 1; }
-
-  constexpr Modular operator-() const noexcept { return Modular(-val_); }
-
-  friend std::istream& operator>>(std::istream& is, Modular& x) {
+  constexpr modint operator+(const modint rhs) const { return modint(*this) += rhs; } 
+  constexpr modint operator-(const modint rhs) const { return modint(*this) -= rhs; }
+  constexpr modint operator*(const modint rhs) const { return modint(*this) *= rhs; }
+  constexpr modint operator/(const modint rhs) const { return modint(*this) /= rhs; }
+  constexpr modint& operator++() { return *this += 1; }
+  constexpr modint& operator--() { return *this -= 1; }
+  constexpr modint operator-() const { return modint(-val_); }
+  friend std::istream& operator>>(std::istream& is, modint& x) {
     long long n;
     is >> n;
-    x = Modular(n);
+    x = modint(n);
     return is;
   }
-
-  friend std::ostream& operator<<(std::ostream& os, const Modular& x) {
+  friend std::ostream& operator<<(std::ostream& os, const modint& x) {
     return os << x();
+  }
+  template <class T>
+  constexpr modint pow(T exp) const {
+    modint x = val_, res = 1;
+    while (exp) {
+      if (exp & 1) res *= x;
+      x *= x;
+      exp >>= 1;
+    }
+    return res;
   }
 
  private:
   long long val_;
-};
-
-constexpr int md = int(1e9) + 7;
-using mint = Modular<md>;
-
-mint operator+(const mint& lhs, const mint& rhs) noexcept {
-  return mint(lhs) += rhs;
-}
-
-mint operator-(const mint& lhs, const mint& rhs) noexcept {
-  return mint(lhs) -= rhs;
-}
-
-mint operator*(const mint& lhs, const mint& rhs) noexcept {
-  return mint(lhs) *= rhs;
-}
-
-mint operator/(const mint& lhs, const mint& rhs) noexcept {
-  return mint(lhs) /= rhs;
-}
-
-bool operator==(const mint& lhs, const mint& rhs) noexcept {
-  return lhs() == rhs();
-}
-
-bool operator!=(const mint& lhs, const mint& rhs) noexcept {
-  return !(lhs() == rhs());
-}
-
-template <class T>
-mint power(const mint& a, T b) {
-  assert(b >= 0);
-  mint x = a, res = 1;
-  while (b) {
-    if (b & 1) res *= x;
-    x *= x;
-    b >>= 1;
+  long long inverse(long long a, long long m) {
+    long long u = 0, v = 1;
+    while (a != 0) {
+      long long t = m / a;
+      m -= t * a;
+      std::swap(a, m);
+      u -= t * v;
+      std::swap(u, v);
+    }
+    assert(m == 1);
+    return u;
   }
-  return res;
-}
+};
 
 // std::vector<mint> fact{1, 1};
 // std::vector<mint> inv{0, 1};
