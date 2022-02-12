@@ -80,10 +80,6 @@ class printer {
     cur = std::to_chars(cur, cur + 20, n).ptr;
   }
 
-  inline void print(std::size_t n) { print(int(n)); }
-
-  inline void print(std::ptrdiff_t n) { print(int(n)); }
-
   inline void print(char c) {
     if (cur + 1 >= buf + sz) flush();
     *cur = c;

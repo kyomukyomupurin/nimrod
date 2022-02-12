@@ -28,6 +28,8 @@ class rolling_hash {
     }
   }
 
+  // [l, r)
+  // O(1)
   hashes get(int l, int r) const {
     mint1 hash1 = h1_[r] - (h1_[l] * p1_[r - l]);
     mint2 hash2 = h2_[r] - (h2_[l] * p2_[r - l]);

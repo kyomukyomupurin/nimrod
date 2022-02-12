@@ -20,6 +20,7 @@ class cumulative_2d {
     }
   }
 
+  // [sx, gx] * [sy, gy]
   // O(1)
   T get(int sx, int sy, int gx, int gy) {
     return s_[gx + 1][gy + 1] - s_[gx + 1][sy] - s_[sx][gy + 1] + s_[sx][sy];
