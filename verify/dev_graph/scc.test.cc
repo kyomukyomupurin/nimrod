@@ -1,4 +1,4 @@
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/all/GRL_3_C"
+#define PROBLEM "https://judge.yosupo.jp/problem/scc"
 #include "../../nimrod/dev_graph/scc.cc"
 #include "../../nimrod/misc/fastio.cc"
 
