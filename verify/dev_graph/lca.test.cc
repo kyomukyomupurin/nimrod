@@ -6,7 +6,7 @@ int main() {
   int N, Q;
   in >> N >> Q;
   lca_forest<int> lca(N);
-  for (int i= 0; i < N; ++i) {
+  for (int i = 1; i < N; ++i) {
     int p;
     in >> p;
     lca.add(i, p);

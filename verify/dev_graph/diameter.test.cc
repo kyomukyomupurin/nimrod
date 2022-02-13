@@ -8,9 +8,9 @@ int main() {
   std::cin >> n;
   forest<int> g(n);
   for (int i = 0; i < n - 1; ++i) {
-    int s, t, d;
-    std::cin >> s >> t >> d;
-    g.add(s, t, d);
+    int s, t, w;
+    std::cin >> s >> t >> w;
+    g.add(s, t, w);
   }
   std::cout << diameter(g) << '\n';
   return 0;

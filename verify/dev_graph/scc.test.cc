@@ -12,6 +12,7 @@ int main() {
     scc.add(a, b);
   }
   scc.build();
+  out.println(int(scc.components().size()));
   for (auto&& v : scc.components()) {
     out << int(v.size());
     for (auto&& e : v) {
