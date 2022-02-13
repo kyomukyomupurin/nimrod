@@ -12,7 +12,7 @@ std::vector<T> bfs(const graph<T>& g, int s) {
   while (!q.empty()) {
     int v = q.front();
     q.pop();
-    for (const auto& [_, to, cost] : g.edges[v]) {
+    for (const auto& [_, to, cost] : g.edges(v)) {
       if (dist[to] != g.inf_cost()) continue;
       dist[to] = dist[v] + cost;
       q.emplace(to);
