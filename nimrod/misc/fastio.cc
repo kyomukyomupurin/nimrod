@@ -4,6 +4,9 @@
 
 // snippet-begin
 namespace fast_io {
+constexpr int sz = 1 << 19;
+constexpr int len= 20;
+
 class scanner {
  public:
   scanner() { fread(buf, 1, sz, stdin); }
@@ -16,7 +19,6 @@ class scanner {
   }
 
  private:
-  static constexpr int sz = 1 << 19;
   char buf[sz];
   char* cur = buf;
 
@@ -32,13 +34,13 @@ class scanner {
   }
 
   inline void scan(int& n) {
-    if (cur + 12 >= buf + sz) reload();
-    cur = const_cast<char*>(std::from_chars(cur, cur + 12, n).ptr);
+    if (cur + len >= buf + sz) reload();
+    cur = const_cast<char*>(std::from_chars(cur, cur + len, n).ptr);
   }
 
   inline void scan(long long& n) {
-    if (cur + 20 >= buf + sz) reload();
-    cur = const_cast<char*>(std::from_chars(cur, cur + 20, n).ptr);
+    if (cur + len >= buf + sz) reload();
+    cur = const_cast<char*>(std::from_chars(cur, cur + len, n).ptr);
   }
 };
 
@@ -61,7 +63,6 @@ class printer {
   }
 
  private:
-  static constexpr int sz = 1 << 19;
   char buf[sz];
   char* cur = buf;
 
@@ -71,13 +72,13 @@ class printer {
   }
 
   inline void print(int n) {
-    if (cur + 12 >= buf + sz) flush();
-    cur = std::to_chars(cur, cur + 12, n).ptr;
+    if (cur + len >= buf + sz) flush();
+    cur = std::to_chars(cur, cur + len, n).ptr;
   }
 
   inline void print(long long n) {
-    if (cur + 20 >= buf + sz) flush();
-    cur = std::to_chars(cur, cur + 20, n).ptr;
+    if (cur + len >= buf + sz) flush();
+    cur = std::to_chars(cur, cur + len, n).ptr;
   }
 
   inline void print(char c) {
