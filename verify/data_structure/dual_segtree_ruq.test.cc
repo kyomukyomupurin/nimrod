@@ -3,18 +3,20 @@
 
 #include "../../nimrod/data_structure/dual_segtree.cc"
 
+using i64 = int64_t;
+
 int main() {
   int n, q;
   std::cin >> n >> q;
-  constexpr long long oie = (1LL << 31) - 1;
-  auto f = [](long long e, long long x) { return x; };
+  constexpr i64 oie = (i64(1) << 31) - 1;
+  auto f = [](i64 e, i64 x) { return x; };
   dual_segtree seg(n, oie, f);
   while (q--) {
     int op;
     std::cin >> op;
     if (op == 0) {
       int s, t;
-      long long x;
+      i64 x;
       std::cin >> s >> t >> x;
       seg.modify(s, t + 1, x);
     } else {

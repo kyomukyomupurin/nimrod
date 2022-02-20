@@ -3,16 +3,18 @@
 
 #include "../../nimrod/data_structure/lazy_segtree.cc"
 
+using i64 = int64_t;
+
 struct Node {
-  long long val, len;
+  i64 val, len;
 };
 constexpr Node ie = {0, 1};
-constexpr long long oie = 0;
+constexpr i64 oie = 0;
 auto f1 = [](Node e1, Node e2) {
   return Node({e1.val + e2.val, e1.len + e2.len});
 };
-auto f2 = [](Node e, long long x) { return Node({e.val + e.len * x, e.len}); };
-auto f3 = [](long long x1, long long x2) { return x1 + x2; };
+auto f2 = [](Node e, i64 x) { return Node({e.val + e.len * x, e.len}); };
+auto f3 = [](i64 x1, i64 x2) { return x1 + x2; };
 
 int main() {
   int n, q;
@@ -23,7 +25,7 @@ int main() {
     std::cin >> op;
     if (op == 0) {
       int s, t;
-      long long x;
+      i64 x;
       std::cin >> s >> t >> x;
       seg.modify(s - 1, t, x);
     } else {

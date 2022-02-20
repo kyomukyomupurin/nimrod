@@ -2,6 +2,8 @@
 #include <cstring>
 #include <iostream>
 
+using i64 = int64_t;
+
 // snippet-begin
 namespace fast_io {
 constexpr int sz = 1 << 19;
@@ -38,7 +40,7 @@ class scanner {
     cur = const_cast<char*>(std::from_chars(cur, cur + len, n).ptr);
   }
 
-  inline void scan(long long& n) {
+  inline void scan(i64& n) {
     if (cur + len >= buf + sz) reload();
     cur = const_cast<char*>(std::from_chars(cur, cur + len, n).ptr);
   }
@@ -76,7 +78,7 @@ class printer {
     cur = std::to_chars(cur, cur + len, n).ptr;
   }
 
-  inline void print(long long n) {
+  inline void print(i64 n) {
     if (cur + len >= buf + sz) flush();
     cur = std::to_chars(cur, cur + len, n).ptr;
   }

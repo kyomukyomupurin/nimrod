@@ -3,14 +3,16 @@
 
 #include <iostream>
 
+using i64 = int64_t;
+
 int main() {
   int V, E, r;
   std::cin >> V >> E >> r;
-  digraph<long long> g(V);
+  digraph<i64> g(V);
   for (int i = 0; i < E; ++i) {
     int s, t;
     std::cin >> s >> t;
-    long long d;
+    i64 d;
     std::cin >> d;
     g.add(s, t, d);
   }

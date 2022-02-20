@@ -1,3 +1,4 @@
+#include <bit>
 #include <vector>
 
 #include "./graph.cc"
@@ -8,7 +9,7 @@ class lca_forest : public forest<T> {
   using forest<T>::n_;
   using forest<T>::edges_;
 
-  lca_forest(int n) : forest<T>(n), lg_(32 - __builtin_clz(n)) {
+  lca_forest(int n) : forest<T>(n), lg_(32 - std::__countl_zero(n)) {
     dep_.resize(n);
     par_.assign(lg_, std::vector<int>(n, -1));
   }

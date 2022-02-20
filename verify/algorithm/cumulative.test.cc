@@ -3,10 +3,12 @@
 
 #include <iostream>
 
+using i64 = int64_t;
+
 int main() {
   int N, Q;
   std::cin >> N >> Q;
-  std::vector<long long> a(N);
+  std::vector<i64> a(N);
   for (auto&& e : a) std::cin >> e;
   cumulative cs(a);
   while (Q--) {

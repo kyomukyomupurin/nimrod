@@ -3,16 +3,18 @@
 
 #include <iostream>
 
+using i64 = int64_t;
+
 int main() {
   int n, q;
   std::cin >> n >> q;
-  raq_fenwick<long long> ft(n);
+  raq_fenwick<i64> ft(n);
   while (q--) {
     int op;
     std::cin >> op;
     if (op == 0) {
       int s, t;
-      long long x;
+      i64 x;
       std::cin >> s >> t >> x;
       --s;
       --t;
