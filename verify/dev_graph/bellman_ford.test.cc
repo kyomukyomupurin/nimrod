@@ -17,10 +17,10 @@ int main() {
     g.add(s, t, d);
   }
   auto dist = bellman_ford(g, E, r);
-  if (dist.empty()) {
+  if (!dist) {
     std::cout << "NEGATIVE CYCLE" << '\n';
   } else {
-    for (auto&& e : dist) {
+    for (auto&& e : dist.value()) {
       if (e == g.inf_cost()) {
         std::cout << "INF" << '\n';
       } else {
