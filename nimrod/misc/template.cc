@@ -24,10 +24,19 @@
 using namespace std;
 using i64 = int64_t;
 
+#ifdef LOCAL
+#include "debug.hpp"
+#else
+#define debug(...) void(0)
+#endif
+
+void Yes(bool f) { cout << (f ? "Yes" : "No") << '\n'; }
+void YES(bool f) { cout << (f ? "YES" : "NO") << '\n'; }
+
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(nullptr);
-
+  cout << fixed << setprecision(17);
 
 
   return 0;

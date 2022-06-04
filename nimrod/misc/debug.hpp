@@ -4,7 +4,6 @@
 #include <tuple>
 #include <vector>
 
-// snippet-begin
 template <class T, class U>
 std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p) {
   return os << '(' << p.first << ", " << p.second << ')';
@@ -56,11 +55,7 @@ std::ostream& operator<<(std::ostream& os, const std::multimap<T, U, Compare>& m
   return os << (f ? "{}" : "}");
 }
 
-#ifdef LOCAL
 #define debug(...) std::cerr << "[" << #__VA_ARGS__ << "]: ", debug_out(__VA_ARGS__)
-#else
-#define debug(...) void(0)
-#endif
 
 void debug_out() { std::cerr << '\n'; }
 
