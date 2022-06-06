@@ -1,8 +1,5 @@
 #include <iostream>
-#include <map>
-#include <set>
 #include <tuple>
-#include <vector>
 
 template <class T, class U>
 std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p) {
@@ -20,42 +17,20 @@ std::ostream& operator<<(std::ostream& os, const std::tuple<Args...>& t) {
   return os;
 }
 
-template <class T>
-std::ostream& operator<<(std::ostream& os, const std::vector<T>& v) {
+template <
+    class Container, class T = typename Container::value_type,
+    std::enable_if_t<!std::is_same<Container, std::string>::value>* = nullptr>
+std::ostream& operator<<(std::ostream& os, Container const& container) {
   bool f = true;
-  for (auto&& e : v) os << (f ? "{" : ", ") << e, f = false;
+  for (auto&& e : container) {
+    os << (f ? "{" : ", ") << e;
+    f = false;
+  }
   return os << (f ? "{}" : "}");
 }
 
-template <class T, class Compare>
-std::ostream& operator<<(std::ostream& os, const std::set<T, Compare>& s) {
-  bool f = true;
-  for (auto&& e : s) os << (f ? "{" : ", ") << e, f = false;
-  return os << (f ? "{}" : "}");
-}
-
-template <class T, class U, class Compare>
-std::ostream& operator<<(std::ostream& os, const std::map<T, U, Compare>& m) {
-  bool f = true;
-  for (auto&& e : m) os << (f ? "{" : ", ") << e, f = false;
-  return os << (f ? "{}" : "}");
-}
-
-template <class T, class Compare>
-std::ostream& operator<<(std::ostream& os, const std::multiset<T, Compare>& s) {
-  bool f = true;
-  for (auto&& e : s) os << (f ? "{" : ", ") << e, f = false;
-  return os << (f ? "{}" : "}");
-}
-
-template <class T, class U, class Compare>
-std::ostream& operator<<(std::ostream& os, const std::multimap<T, U, Compare>& m) {
-  bool f = true;
-  for (auto&& e : m) os << (f ? "{" : ", ") << e, f = false;
-  return os << (f ? "{}" : "}");
-}
-
-#define debug(...) std::cerr << "[" << #__VA_ARGS__ << "]: ", debug_out(__VA_ARGS__)
+#define debug(...) \
+  std::cerr << "[" << #__VA_ARGS__ << "]: ", debug_out(__VA_ARGS__)
 
 void debug_out() { std::cerr << '\n'; }
 

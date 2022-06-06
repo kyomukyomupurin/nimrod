@@ -32,6 +32,7 @@ using i64 = int64_t;
 
 void Yes(bool f) { cout << (f ? "Yes" : "No") << '\n'; }
 void YES(bool f) { cout << (f ? "YES" : "NO") << '\n'; }
+template <class T> istream& operator>>(istream& is, vector<T>& v) { for (auto&& e : v) is >> e; return is; }
 
 int main() {
   ios_base::sync_with_stdio(false);
